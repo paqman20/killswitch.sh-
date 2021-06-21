@@ -1,7 +1,9 @@
 # killswitch.sh-
 this is kill switch for a vpn all you have to do is connect to your VPN server and get your IP Address then after that plug that is and BOOM you now have a kill switch your VPN goes down and your internet connection goes down with it. 
 
-DOCUMENTATIOn 
+DOCUMENTATION
+
+SETUP
 Please run beforeins.sh just makes sure your file gets moved to /opt directory. Now I would rather have it there then taking up space in my home directory but it is whatever move it whereever you want just go ahead and make sure to change the symbolic link too.
 
 After having run the script make sure you have "ufw" you can install it with 
@@ -18,4 +20,10 @@ There is are two things you must do FRIST before you run the script.
 
 #3 After connecting and shutting down run "sudo ufw disable" before doing anything else
 
+#4 Complety optinal but you can go ahead and run "" 
+
 Then you should be good to go if you have any questions feel free to reach out im new and this was pretty hard for me but im sure we could work something out
+
+USING THE SCRIPT
+
+Go ahead and connect to your vpn server of choice after that go ahead and type "What is my ip" then take that number and type that into the script and you should be all set to go as long as you relplaced the old inet links with your own. Anyways thanks everone and have a great time using it peace. 
