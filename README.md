@@ -20,7 +20,8 @@ There is are two things you must do FRIST before you run the script.
 
 #3 After connecting and shutting down run "sudo ufw disable" before doing anything else
 
-#4 Complety optinal but you can go ahead and run "" 
+ALIAS 
+#4 Complety optinal but you can go ahead and run "sudo echo "alias killswitch="sudo bash killswitch.sh" >> ~/.bashrc" and "source ~/.bashrc" this is optinal I would not people toching my ~/.bashrc folder so here you go with the symbolic link and this yu should just type killswitch and it will iniciate.
 
 Then you should be good to go if you have any questions feel free to reach out im new and this was pretty hard for me but im sure we could work something out
 
