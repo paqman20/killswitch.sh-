@@ -7,7 +7,8 @@ read -p 'ip addr: ' ipaddr
 read -p '"u" for udp "t" for tcp protocol : ' protocol 	
 
 #go ahead and replace with the INET addr you can find this by running ip addr | grep inet   . 
-
+sudo ufw allow out to 10.0.0.203/24
+sudo ufw allow in to 10.0.0.203/24
 
 #Taking out all the traffic so we can start from scracth 
 sudo ufw default deny outgoing
