@@ -3,7 +3,7 @@
 #This is also where you will enter your IP of your SERVER not you
 #You NEED to do this so your Firewall can deny other connections expet this one 
 yes | ufw reset
-read -p 'ip addr: ' ipaddr
+ipaddr=$(wget https://duckduckgo.com/?q=whats+my+ip -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>') 
 read -p '"u" for udp "t" for tcp protocol : ' protocol 	
 
 #Taking out all the traffic so we can start from scracth 
