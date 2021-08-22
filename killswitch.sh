@@ -5,10 +5,16 @@
 yes | ufw reset
 ipaddr=$(wget https://duckduckgo.com/?q=whats+my+ip -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>') 
 read -p '"u" for udp "t" for tcp protocol : ' protocol 	
+#devip =$(ip a s #wlp2s0# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2)
+
 
 #Taking out all the traffic so we can start from scracth 
 sudo ufw default deny outgoing
 sudo ufw default deny incoming
+
+#allow in to our machine 
+sudo ufw allow in to $devip 
+sudo ufw allow out to $devip
 
 #choosing the protocol UDP or TCP
 if  (( "$protocol" = "u" )); 
