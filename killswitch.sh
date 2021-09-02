@@ -3,10 +3,10 @@
 #This is also where you will enter your IP of your SERVER not you
 #You NEED to do this so your Firewall can deny other connections expet this one 
 yes | ufw reset
-ipaddr=$(wget https://duckduckgo.com/?q=whats+my+ip -q -O - | grep -Eo '\<[[:digit:]]{1,3}(\.[[:digit:]]{1,3}){3}\>') 
+ipaddr=$(curl checkip.amazonaws.com)
 read -p '"u" for udp "t" for tcp protocol : ' protocol 	
 #devip =$(ip a s #wlp2s0# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2)
-
+devip+=/24
 
 #Taking out all the traffic so we can start from scracth 
 sudo ufw default deny outgoing
