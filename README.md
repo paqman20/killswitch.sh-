@@ -1,6 +1,6 @@
 # killswitch.sh
 This a complete rewrite of the documentation
-# Click on see source blob rigth next to edit button
+# Click RAW rigth next to edit button
 
 This script is using UFW. The Uncomlicated Firewall. This a firewall such as iptables I have decided to use UFW but this could very well change in the future but for now this is what I have chosen. This script starts a firewall that makes sure your vpn goes down it will take the rest of your internet connections stopping potential leaks before they begin. This is written in the shell scripting laungae bash, as such it is a reqesit. This is made to be used on a linux system so i have not tested any other opertation system before hand it is also meant to use openvpn so keep that n mind
 
