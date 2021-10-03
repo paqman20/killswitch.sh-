@@ -1,4 +1,4 @@
-  GNU nano 5.4                                                                                       killswitch.sh                                                                                                 
+                                                                                                                                                                              
 #! /bin/bash
 #reseting the uwf setting from before incase of new server connection. 
 #This is also where you will enter your IP of your SERVER not you
