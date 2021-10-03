@@ -1,12 +1,13 @@
+  GNU nano 5.4                                                                                       killswitch.sh                                                                                                 
 #! /bin/bash
 #reseting the uwf setting from before incase of new server connection. 
 #This is also where you will enter your IP of your SERVER not you
 #You NEED to do this so your Firewall can deny other connections expet this one 
 yes | ufw reset
-ipaddr=$(curl checkip.amazonaws.com)
-read -p '"u" for udp "t" for tcp protocol : ' protocol 	
-#devip =$(ip a s #wlp2s0# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2)
-devip+=/24
+ipaddr=$(dig +short myip.opendns.com @resolver1.opendns.com) 
+read -p '"u" for udp "t" for tcp protocol : ' protocol  
+devip=$( ip a s #enp0s31f6# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2 )
+
 
 #Taking out all the traffic so we can start from scracth 
 sudo ufw default deny outgoing
@@ -18,14 +19,14 @@ sudo ufw allow out to $devip
 
 #choosing the protocol UDP or TCP
 if  (( "$protocol" = "u" )); 
-	then  
-		sudo ufw allow out to $ipaddr port 1194 proto udp
+        then  
+                sudo ufw allow out to $ipaddr port 1194 proto udp
 fi
 
 
 if  (( "$protocol" = "t" )); 
-	then  
-		sudo ufw allow out to $ipaddr port 1194 proto tcp
+        then  
+                sudo ufw allow out to $ipaddr port 1194 proto tcp
 fi 
 
 
@@ -37,8 +38,12 @@ sudo ufw enable
 read -p 'stop :' stop 
 
 if [ "$stop" == 'y' ] ; then  
-	sudo ufw disable
+        sudo ufw disable
 
- fi	
+ fi     
  
  echo $sum
+
+
+
+ 
