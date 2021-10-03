@@ -1,30 +1,34 @@
-# killswitch.sh-
-this is kill switch for a vpn all you have to do is connect to your VPN server and get your IP Address then after that plug that is and BOOM you now have a kill switch your VPN goes down and your internet connection goes down with it. 
+# killswitch.sh
+This a complete rewrite of the documentation
 
-DOCUMENTATION
+This script is using UFW. The Uncomlicated Firewall. This a firewall such as iptables I have decided to use UFW but this could very well change in the future but for now this is what I have chosen. This script starts a firewall that makes sure your vpn goes down it will take the rest of your internet connections stopping potential leaks before they begin. This is written in the shell scripting laungae bash, as such it is a reqesit. This is made to be used on a linux system so i have not tested any other opertation system before hand it is also meant to use openvpn so keep that n mind
 
-SETUP
-Please run beforeins.sh just makes sure your file gets moved to /opt directory. Now I would rather have it there then taking up space in my home directory but it is whatever move it whereever you want just go ahead and make sure to change the symbolic link too.
+# Install
+You are going to want to install this using your package manager
+            Sudo apt install ufw
+            sudo pacman -S ufw
+            sudo emerge -av ufw
 
-After having run the script make sure you have "ufw" you can install it with 
-            sudo apt install ufw
-            sudo dnf install ufw
-            sudo zypper install ufw 
-            sudo pacman -S install ufw 
+# Configuratiom
+The only manula work yo have to do is find your network interface wlan0 eth0 etc.
+you can do this by running 
+            ifconfig or ip addr 
+            the look for something along the lines enp0s31fs or wlan0 or anything like that it is not lo or tun
+After that just go ahead and add it to the script instead of the thing between the parentheses as seeen here  
+                     |   
+                     |
+                    \ /
+devip=$( ip a s #enp0s31f6# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2 )
 
-There is are two things you must do FRIST before you run the script.
 
-#1 You must find the inet addres of your device this is nneded. This is very simeple to add and find all you should need to do is run ip addr | grep inet  it should be the third one down with a brd next to the end. So go ahead and add this to script where the # are infront of the two identical ip addr 
+After make it eexcutable 
+          chmod u+x killswitch.sh
+         
+# usage 
+to start 
+            sudo ./killswitch.sh
+            
+  
+  
+Anyway enjoy i tried to make the guide as simple as possible.
 
-#2 find the ip address of the server you can do this very easily by just typing "What is my ip" and plug that in when it says so. PS. make sure your using udp if not then change udp to tcp.
-
-#3 After connecting and shutting down run "sudo ufw disable" before doing anything else
-
-ALIAS 
-#4 Complety optinal but you can go ahead and run "sudo echo "alias killswitch='sudo bash killswitch.sh' >> ~/.bashrc" and  "sudo echo alias='sudo disable uwf'  " >> ~/.bashrc" and "source ~/.bashrc" this is optinal I would not people toching my ~/.bashrc folder so here you go with the symbolic link and this yu should just type killswitch and it will iniciate and dwn will now take the firewall down ready for the next time.
-
-Then you should be good to go if you have any questions feel free to reach out im new and this was pretty hard for me but im sure we could work something out
-
-USING THE SCRIPT
-
-Go ahead and connect to your vpn server of choice after that go ahead and type "What is my ip" then take that number and type that into the script and you should be all set to go as long as you relplaced the old inet links with your own. Anyways thanks everone and have a great time using it peace. 
