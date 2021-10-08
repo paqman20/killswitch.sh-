@@ -4,7 +4,7 @@
 #This is also where you will enter your IP of your SERVER not you
 #You NEED to do this so your Firewall can deny other connections expet this one 
 yes | ufw reset
-ipaddr=$(dig +short myip.opendns.com @resolver1.opendns.com) 
+read -p 'ip addr: ' ipaddr 
 read -p '"u" for udp "t" for tcp protocol : ' protocol  
 devip=$( ip a s #enp0s31f6# | egrep -o 'inet [0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d' ' -f2 )
 
