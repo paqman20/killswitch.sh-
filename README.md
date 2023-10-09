@@ -1,4 +1,6 @@
 # killswitch.sh-
+
+## This was my frist every computer project. Looking back it was nothing but a simple shell script. But to me then it was the single most facinating thing I had ever done. It sparked a lifetime of learning and challeneges and for that this project will allways have a special place inside my heart, but it is time to archive it.
 this is kill switch for a vpn all you have to do is connect to your VPN server and get your IP Address then after that plug that is and BOOM you now have a kill switch your VPN goes down and your internet connection goes down with it. 
 
 DOCUMENTATION
